@@ -6,7 +6,7 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 24, bottom: 24),
+      padding: EdgeInsets.only(top: 24, bottom: 24, right: 0, left: 10),
       decoration: BoxDecoration(
         color: Colors.yellow,
         borderRadius: BorderRadius.circular(12),
@@ -15,15 +15,28 @@ class NoteItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           ListTile(
-            title: const Text(
-              'Flutter Tipes',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 22,
-              ),
+            title: Row(
+              children: [
+                const Text(
+                  'Flutter Tipes',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                  ),
+                ),
+                Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.delete_outline_rounded,
+                    color: Colors.black,
+                    size: 32,
+                  ),
+                ),
+              ],
             ),
             subtitle: Padding(
-              padding: const EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: 10),
               child: Text(
                 'build your career with Hussein',
                 style: TextStyle(
@@ -32,18 +45,13 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
             ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.delete_outline_rounded,
-                color: Colors.black,
-                size: 30,
-              ),
-            ),
+          ),
+          SizedBox(
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.only(
-              right: 25,
+              right: 32,
             ),
             child: Text(
               '10 - 12 - 2024',
@@ -52,6 +60,9 @@ class NoteItem extends StatelessWidget {
                 fontSize: 12,
               ),
             ),
+          ),
+          SizedBox(
+            height: 12,
           ),
         ],
       ),
