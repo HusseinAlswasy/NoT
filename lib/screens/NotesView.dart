@@ -6,8 +6,11 @@ class Notesview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: NotesViewBody(),
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(left: 17, right: 17),
+        child: NotesViewBody(),
+      ),
     );
   }
 }
