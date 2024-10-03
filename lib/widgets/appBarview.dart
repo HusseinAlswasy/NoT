@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  CustomAppBar({super.key, required this.nameAppBar, required this.icon});
 
   @override
+  String nameAppBar;
+  final IconData icon;
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          'NoTa',
+          nameAppBar,
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
@@ -24,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
           ),
           child: Center(
             child: Icon(
-              Icons.search_rounded,
+              icon,
             ),
           ),
         ),
