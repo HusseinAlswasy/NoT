@@ -35,7 +35,7 @@ class EditNote extends StatelessWidget {
               const SizedBox(
                 height: 300,
               ),
-              const CustomButton(),
+              CustomButton(),
               const SizedBox(
                 height: 30,
               ),
