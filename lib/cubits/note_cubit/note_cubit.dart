@@ -6,13 +6,10 @@ import 'package:nat/models/note_model.dart';
 class NoteCubit extends Cubit<NoteState> {
   NoteCubit() : super(NoteInitial());
 
+  List<NoteModel>? notes;
   FetchNoteModel() async {
-    try {
-      var noteBox = Hive.box<NoteModel>('note box');
-
-      emit(NoteSuccess(notes: noteBox.values.toList()));
-    } catch (e) {
-      emit(NoteFailuer(e.toString()));
-    }
+    var noteBox = Hive.box<NoteModel>('note box');
+    notes = noteBox.values.toList();
+    emit(NoteSuccess(notes!));
   }
 }

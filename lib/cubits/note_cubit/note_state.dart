@@ -9,7 +9,7 @@ class NoteLoading extends NoteState {}
 class NoteSuccess extends NoteState {
   final List<NoteModel> notes;
 
-  NoteSuccess({required this.notes});
+  NoteSuccess(this.notes);
 }
 
 class NoteFailuer extends NoteState {
