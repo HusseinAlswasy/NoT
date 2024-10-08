@@ -41,7 +41,9 @@ class NoteItem extends StatelessWidget {
                   ),
                   Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      note?.delete();
+                    },
                     icon: const Icon(
                       Icons.delete_outline_rounded,
                       color: Colors.black,
