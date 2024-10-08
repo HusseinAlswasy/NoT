@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nat/models/note_model.dart';
 import 'package:nat/screens/NotesEdit.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.note});
+
+  final NoteModel? note;
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +15,13 @@ class NoteItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return EditNote();
+              return const EditNote();
             },
           ),
         );
       },
       child: Container(
-        padding: EdgeInsets.only(top: 24, bottom: 24, right: 0, left: 10),
+        padding: const EdgeInsets.only(top: 24, bottom: 24, right: 0, left: 10),
         decoration: BoxDecoration(
           color: Colors.yellow,
           borderRadius: BorderRadius.circular(12),
@@ -29,9 +32,9 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: Row(
                 children: [
-                  const Text(
-                    'Flutter Tipes',
-                    style: TextStyle(
+                  Text(
+                    note!.title,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 22,
                     ),
@@ -50,7 +53,7 @@ class NoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  'build your career with Hussein',
+                  note!.subtitle,
                   style: TextStyle(
                     color: Colors.grey.withOpacity(.8),
                     fontSize: 18,
@@ -66,7 +69,7 @@ class NoteItem extends StatelessWidget {
                 right: 32,
               ),
               child: Text(
-                '10 - 12 - 2024',
+                note!.date,
                 style: TextStyle(
                   color: Colors.grey.withOpacity(.8),
                   fontSize: 12,
